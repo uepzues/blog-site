@@ -9,10 +9,10 @@
 
   <% posts.forEach(post => { %>
   <%- `<div class="rounded-3xl border-2 border-yellow-600 divide-y divide-yellow-500 mb-3">` %>
-  <%- `<h2 class="p-3 font-semibold text-xl pb-0"> <a href="/posts/:postTitle"> ${post.title}</a> </h2>` %>
+  <%- `<h2 class="p-3 font-semibold text-xl pb-0"> <a href="/posts/${_.lowerCase(post.title)}"> ${_.startCase(post.title)}</a> </h2>` %>
   <% if (post.content.length >= 100) { %>
   <% let trimPost = post.content.substring(0, 100) %>
-  <%- `<p class="px-3 pb-3"> ${trimPost} ... <a class="underline" href="/posts">Read more</a></p>`%>
+  <%- `<p class="px-3 pb-3"> ${trimPost} ... <a class="underline" href="/posts/${_.lowerCase(post.title)}">Read more</a></p>`%>
   <% } else if (post.content.length < 100) { %>
   <%- `<p class=" px-3 pb-3"> ${post.content}</p>` %>
   <% } %>

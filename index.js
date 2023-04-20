@@ -18,10 +18,13 @@ let posts = [];
 
 app.get("/", (req, res) => {
   res.render("home", {
+    _: _,
     staticPostTitle: "Home",
     staticPostContent: homeContent,
     posts: posts,
   });
+  console.log(_);
+
   // console.log(posts);
 });
 
@@ -44,11 +47,14 @@ app.get("/compose", (req, res) => {
 });
 
 app.get("/posts/:postTitle", (req, res) => {
-  const postName = req.params.postTitle;
+  const postName = _.lowerCase(req.params.postTitle);
   posts.forEach((post) => {
-    if (postName === post.title) {
-      // console.log(post.title);
-      res.render("post", { postTitle: post.title, postContent: post.content });
+    if (postName === _.lowerCase(post.title)) {
+      res.render("post", {
+        _: _,
+        postTitle: post.title,
+        postContent: post.content,
+      });
     }
   });
 });
