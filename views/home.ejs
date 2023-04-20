@@ -8,14 +8,18 @@
   </div>
 
   <% posts.forEach(post => { %>
-  <%- `<div class="rounded-3xl border-2 border-yellow-600 divide-y divide-yellow-500 mb-3" ">` %>
+  <%- `<div class="rounded-3xl border-2 border-yellow-600 divide-y divide-yellow-500 mb-3">` %>
   <%- `<h2 class="p-3 font-semibold text-xl pb-0"> ${post.title} </h2>` %>
   <% if (post.content.length >= 100) { %>
-  <% trimPost = post.content.substring(0, 100) %>
-  <%- `<p class=" px-3 pb-3"> ${trimPost} ... <a class="underline" href="/posts">Read more</a> </p></div>` %>
+  <% let trimPost = post.content.substring(0, 100) %>
+  <%- `<p class="px-3 pb-3"> ${trimPost} ... <a class="underline" href="/posts">Read more</a></p>`%>
+  <% } else if (post.content.length < 100) { %>
+  <%- `<p class=" px-3 pb-3"> ${post.content}</p>` %>
   <% } %>
+  <%- `</div>` %>
+  <% }) %>
 
-  <% })%>
+
 
 </section>
 
