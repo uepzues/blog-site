@@ -22,6 +22,7 @@ app.get("/", (req, res) => {
     staticPostContent: homeContent,
     posts: posts,
   });
+  // console.log(posts);
 });
 
 app.get("/about", (req, res) => {
@@ -42,8 +43,14 @@ app.get("/compose", (req, res) => {
   res.render("compose");
 });
 
-app.get("/posts", (req, res) => {
-  res.render("post");
+app.get("/posts/:postTitle", (req, res) => {
+  const postName = req.params.postTitle;
+  posts.forEach((post) => {
+    if (postName === post.title) {
+      // console.log(post.title);
+      res.render("post", { postTitle: post.title, postContent: post.content });
+    }
+  });
 });
 
 app.post("/compose", (req, res) => {
