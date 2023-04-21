@@ -1497,6 +1497,10 @@ html {
   background-size: 20px 20px;
 }
 
+.m-1 {
+  margin: 0.25rem;
+}
+
 .m-auto {
   margin: auto;
 }
@@ -1516,6 +1520,10 @@ html {
 
 .block {
   display: block;
+}
+
+.flex {
+  display: flex;
 }
 
 .grid {
@@ -1554,8 +1562,16 @@ html {
   max-width: 20rem;
 }
 
+.transform {
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
 .grid-flow-col {
   grid-auto-flow: column;
+}
+
+.justify-center {
+  justify-content: center;
 }
 
 .justify-evenly {
@@ -1612,6 +1628,10 @@ html {
   border-width: 2px;
 }
 
+.border-b-2 {
+  border-bottom-width: 2px;
+}
+
 .border-yellow-600 {
   --tw-border-opacity: 1;
   border-color: rgb(202 138 4 / var(--tw-border-opacity));
@@ -1634,6 +1654,10 @@ html {
 
 .fill-current {
   fill: currentColor;
+}
+
+.fill-yellow-800 {
+  fill: #854d0e;
 }
 
 .p-10 {
@@ -1708,19 +1732,30 @@ html {
   box-shadow: var(--tw-ring-offset-shadow, 0 0 #0000), var(--tw-ring-shadow, 0 0 #0000), var(--tw-shadow);
 }
 
-/* // {
-    //   mytheme: {
-    //     primary: "#ca8a04",
-    //     secondary: "#fcd34d",
-    //     accent: "#fed7aa",
-    //     neutral: "#fef3c7",
-    //     "base-100": "#57534e",
-    //     info: "#3ABFF8",
-    //     success: "#36D399",
-    //     warning: "#FBBD23",
-    //     error: "#f43f5e",
-    //   },
-    // }, */
+.edit {
+  display: none;
+}
+
+.toggle {
+  display: block;
+}
+
+.hover\:scale-110:hover {
+  --tw-scale-x: 1.1;
+  --tw-scale-y: 1.1;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
+
+.hover\:drop-shadow-md:hover {
+  --tw-drop-shadow: drop-shadow(0 4px 3px rgb(0 0 0 / 0.07)) drop-shadow(0 2px 2px rgb(0 0 0 / 0.06));
+  filter: var(--tw-blur) var(--tw-brightness) var(--tw-contrast) var(--tw-grayscale) var(--tw-hue-rotate) var(--tw-invert) var(--tw-saturate) var(--tw-sepia) var(--tw-drop-shadow);
+}
+
+.active\:scale-95:active {
+  --tw-scale-x: .95;
+  --tw-scale-y: .95;
+  transform: translate(var(--tw-translate-x), var(--tw-translate-y)) rotate(var(--tw-rotate)) skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+}
 
 .active\:bg-\[\#ca8a04\]:active {
   --tw-bg-opacity: 1;

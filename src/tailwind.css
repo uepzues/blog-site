@@ -16,16 +16,9 @@
   }
 }
 
-/* // {
-    //   mytheme: {
-    //     primary: "#ca8a04",
-    //     secondary: "#fcd34d",
-    //     accent: "#fed7aa",
-    //     neutral: "#fef3c7",
-    //     "base-100": "#57534e",
-    //     info: "#3ABFF8",
-    //     success: "#36D399",
-    //     warning: "#FBBD23",
-    //     error: "#f43f5e",
-    //   },
-    // }, */
+.edit {
+  display: none;
+}
+.toggle {
+  display: block;
+}

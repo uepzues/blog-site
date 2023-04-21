@@ -23,8 +23,6 @@ app.get("/", (req, res) => {
     staticPostContent: homeContent,
     posts: posts,
   });
-  console.log(_);
-
   // console.log(posts);
 });
 
