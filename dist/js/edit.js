@@ -17,7 +17,6 @@ toggleEdit();
 
 const deleteBtn = () => {
   editBtns.forEach((del) => {
-    console.log(del.closest(".postDiv"));
     del.addEventListener("click", () => {
       del.closest(".postDiv").remove();
     });
