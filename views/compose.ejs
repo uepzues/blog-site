@@ -1,25 +1,11 @@
 <%- include('partials/header') %>
 <section>
-  <section
-    class="h-screen overflow-auto max-w-[90%] mx-auto bg-[#ddcaa3] px-10 pt-10"
-  >
+  <section class="h-screen overflow-auto max-w-[90%] mx-auto bg-[#ddcaa3] px-10 pt-10">
     <form action="/compose" method="post" name="inPostForm">
       <!-- header goes here -->
-      <input
-        type="text"
-        placeholder="Post title here"
-        class="input input-bordered w-full max-w-xs border-yellow-600 mb-3"
-        name="inPostTitle"
-      />
-      <textarea
-        class="textarea border-yellow-600 w-full mb-3"
-        name="inPostContent"
-        placeholder="Type here..."
-      ></textarea>
-      <button
-        class="btn btn-block bg-[#ba8d2c] border-yellow-600"
-        type="submit"
-      >
+      <input type="text" placeholder="Post title here" class="input input-bordered w-full max-w-xs border-yellow-600 mb-3" name="inPostTitle" />
+      <textarea rows="10" class="textarea leading-[1.25] border-yellow-600 w-full mb-3" name="inPostContent" placeholder="Type here..."></textarea>
+      <button class="btn btn-block bg-[#ba8d2c] border-yellow-600" type="submit">
         Publish
       </button>
     </form>
