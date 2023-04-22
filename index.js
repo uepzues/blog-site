@@ -5,6 +5,8 @@ import {
   aboutContent,
   contactContent,
 } from "./src/js/staticPost.js";
+import mongoose from "mongoose";
+
 
 const app = express();
 const port = process.env.PORT || 3000;
