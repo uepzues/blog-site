@@ -1,5 +1,4 @@
 const options = document.querySelectorAll(".option");
-const editBtns = document.querySelectorAll(".edit");
 
 const toggleEdit = () => {
   options.forEach((option) => {
@@ -14,13 +13,3 @@ const toggleEdit = () => {
 };
 
 toggleEdit();
-
-const deleteBtn = () => {
-  editBtns.forEach((del) => {
-    del.addEventListener("click", () => {
-      del.closest(".postDiv").remove();
-    });
-  });
-};
-
-deleteBtn();
