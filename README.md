@@ -4,3 +4,4 @@ A simple blog and journaling app.
 
 ## Live Demo
 https://blog-site.fly.dev/
+https://blog-post-o27r.onrender.com/
