@@ -1,4 +1,5 @@
 import express from "express";
+import * as dotenv from "dotenv";
 import _ from "lodash";
 import {
   homeContent,
@@ -7,6 +8,14 @@ import {
 } from "./src/js/staticPost.js";
 import mongoose from "mongoose";
 
+dotenv.config();
+
+mongoose.set("strictQuery", false);
+
+const connectDB = async () => {
+  const conn = await mongoose.connect(process.env.MONGO_URI);
+  console.log(`MongoDB Connected: ${conn.connection.host}`);
+};
 
 const app = express();
 const port = process.env.PORT || 3000;
@@ -16,16 +25,47 @@ app.use(express.urlencoded({ extended: true }));
 
 app.set("view engine", "ejs");
 
+//create schema
+const postSchema = {
+  title: String,
+  content: String,
+};
+
+//create model for schema
+const Post = mongoose.model("Post", postSchema);
+
 let posts = [];
 
+function blogList() {
+  return Post.find({})
+    .then((postResults) => {
+      // throw Error("this is a created error")
+      // console.log(postResults);
+      return postResults;
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+}
+
+blogList();
+
 app.get("/", (req, res) => {
-  res.render("home", {
-    _: _,
-    staticPostTitle: "Home",
-    staticPostContent: homeContent,
-    posts: posts,
+  blogList().then((postResults) => {
+    const getIds = postResults.forEach((post) => {
+      // console.log(post._id);
+    });
+
+    // console.log(getIds);
+
+    posts = postResults;
+    res.render("home", {
+      _: _,
+      staticPostTitle: "Home",
+      staticPostContent: homeContent,
+      posts: posts,
+    });
   });
-  // console.log(posts);
 });
 
 app.get("/about", (req, res) => {
@@ -46,30 +86,44 @@ app.get("/compose", (req, res) => {
   res.render("compose");
 });
 
-app.get("/posts/:postTitle", (req, res) => {
-  const postName = _.lowerCase(req.params.postTitle);
-  posts.forEach((post) => {
-    if (postName === _.lowerCase(post.title)) {
-      res.render("post", {
-        _: _,
-        postTitle: post.title,
-        postContent: post.content,
-      });
-    }
+app.get("/posts/:postId", (req, res) => {
+  const postId = req.params.postId;
+  // console.log(postId);
+  Post.findOne({ _id: postId }).then((post) => {
+    // console.log(post);
+    res.render("post", {
+      _: _,
+      postTitle: post.title,
+      postContent: post.content,
+    });
   });
 });
 
 app.post("/compose", (req, res) => {
-  const post = {
+  const blogPosts = new Post({
     title: req.body.inPostTitle,
     content: req.body.inPostContent,
-  };
+  });
 
-  posts.push(post);
+  blogPosts.save();
 
   res.redirect("/");
 });
 
-app.listen(port, () => {
-  console.log(`Server started on ${port}`);
+app.get("/delete/:postId", (req, res) => {
+  const postId = req.params.postId;
+  // console.log(postId);
+  Post.findByIdAndRemove({ _id: postId })
+    .then(() => {
+      res.redirect("/");
+    })
+    .catch((err) => {
+      console.log(err);
+    });
+});
+
+connectDB().then(() => {
+  app.listen(port, () => {
+    console.log(`Server started on ${port}`);
+  });
 });
