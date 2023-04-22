@@ -1,8 +1,8 @@
 export const homeContent =
-  " Mein stunden schöne äolsharfe vor euch irrt ergreift fühlt mein die. Euch ernsten wieder ihr ein. Walten ihr nennt erste euren hören was, bang der walten den sich. An euch versuch es fühl nun, der dunst freundliche irren auf neu.";
+  "Welcome to your personal daily journal app! This is a safe and private space for you to reflect on your thoughts, emotions, and experiences. Use this journaling tool to explore your inner world and improve your overall well-being by taking a few minutes each day to write down your thoughts. ";
 
 export const aboutContent =
-  "And climes lands harold said lands he another, climes rake care feeble sad partings to could to a. Light pomp weary lyres and all harold her. He joyless land kiss the of for his, by might vile he that the venerable. A was superstition not clay from. Said there harolds.";
+  "This is a simple blog and journaling app where you can write your thoughts or just about anything you can think of. ";
 
 export const contactContent =
-  "Kaj mem kaj reiros ni gxi rizo, konfidis mi sian kaj kiu kion surteron fosilon, mia kaj de unu ne mauxro surmaron faris blekadojn. Facile mia mi al sed sxipbordon. Elnutrita kies ni se la, veturadon la mi ne li levis kiel kie kapti dum. Iri estas nu bona poste.";
+  "Contact me if you have suggestions or questions regarding this app. Just click on the links on the footer for updates and queries.";
